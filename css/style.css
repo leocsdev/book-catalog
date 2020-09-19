@@ -1,0 +1,21 @@
+body {
+  background-color: whitesmoke;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th,
+td {
+  /* padding-left: 10px; */
+  background: #ffffff;
+  border: 1px solid #f1f1f1;
+}
+
+.btn-secondary {
+  background-color: #9a9a9a;
+  /* border-color: #aeaeae; */
+}
