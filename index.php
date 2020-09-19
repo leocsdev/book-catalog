@@ -6,7 +6,6 @@
   $books = $con -> query($sql) or die ($con -> error);
   $row = $books -> fetch_assoc();
 
-  
   if (isset($_POST['add-book'])) {  
     // echo "ADDED BOOK!";
 
@@ -23,26 +22,7 @@
 
     echo header("Location: index.php");
   }
-
-  if (isset($_POST['edit-book'])) {  
-    echo "EDITED BOOK!";
-
-    // $title = $_POST['title'];
-    // $isbn = $_POST['isbn'];
-    // $author = $_POST['author'];
-    // $publisher = $_POST['publisher'];
-    // $year_published = $_POST['year_published'];
-    // $category = $_POST['category'];
-
-    // $sql = "INSERT INTO `books_list`(`title`, `isbn`, `author`, `publisher`, `year_published`, `category`) VALUES ('$title', '$isbn', '$author', '$publisher', '$year_published', '$category')";
-
-    // $con -> query($sql) or die ($con -> error);
-
-    // echo header("Location: index.php");
-  }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,12 +36,7 @@
   <title>Book Catalog</title>
 </head>
 <body>
-  <header>
-    
-  </header>
-
   <main>
-    
     <section id="table-list">
       <div class="container">
         <div class="row">
@@ -106,7 +81,7 @@
       </div>
     </section>
 
-    <!-- MODAL FOR ADD BOOK -->
+    <!-- MODAL FOR ADDING BOOK -->
     <div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="addBookModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -121,32 +96,32 @@
             <form action="" method="post">
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Book Title:</label>
-                <input type="text" class="form-control" name="title" id="title">
+                <input type="text" class="form-control" name="title" id="title" required>
               </div>
               
               <div class="form-group">
                 <label for="message-text" class="col-form-label">ISBN:</label>
-                <input type="text" class="form-control" name="isbn" id="isbn">
+                <input type="text" class="form-control" name="isbn" id="isbn" required>
               </div>
 
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Author:</label>
-                <input type="text" class="form-control" name="author" id="author">
+                <input type="text" class="form-control" name="author" id="author" required>
               </div>
 
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Publisher:</label>
-                <input type="text" class="form-control" name="publisher" id="publisher">
+                <input type="text" class="form-control" name="publisher" id="publisher" required>
               </div>
 
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Year Published:</label>
-                <input type="number" class="form-control" name="year_published" id="year_published">
+                <input type="number" class="form-control" name="year_published" id="year_published" required>
               </div>
 
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Category:</label>
-                <input type="text" class="form-control" name="category" id="category">
+                <input type="text" class="form-control" name="category" id="category" required>
               </div>
 
               <div class="modal-footer">
@@ -158,60 +133,6 @@
         </div>
       </div>
     </div>
-
-    <!-- MODAL FOR EDIT BOOK -->
-    <div class="modal fade" id="editBookModal" tabindex="-1" role="dialog" aria-labelledby="editBookModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editBookModalLabel">Edit Book Info</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <form action="" method="post">
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Book Title:</label>
-                <input type="text" class="form-control" name="title" value="<?php echo $row['title']?>" id="title">
-              </div>
-              
-              <div class="form-group">
-                <label for="message-text" class="col-form-label">ISBN:</label>
-                <input type="text" class="form-control" name="isbn" id="isbn">
-              </div>
-
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Author:</label>
-                <input type="text" class="form-control" name="author" id="author">
-              </div>
-
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Publisher:</label>
-                <input type="text" class="form-control" name="publisher" id="publisher">
-              </div>
-
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Year Published:</label>
-                <input type="number" class="form-control" name="year_published" id="year_published">
-              </div>
-
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Category:</label>
-                <input type="text" class="form-control" name="category" id="category">
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-primary" name="edit-book">Save Changes</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
