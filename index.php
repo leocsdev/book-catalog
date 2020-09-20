@@ -11,6 +11,7 @@
     $publisher = $_POST['publisher'];
     $year_published = $_POST['year_published'];
     $category = $_POST['category'];
+    $archived = $_POST['archived'];
 
     $sql = "INSERT INTO `books_list` (
       `title`, 
@@ -18,14 +19,16 @@
       `author`, 
       `publisher`, 
       `year_published`, 
-      `category`) 
+      `category`,
+      `archived`) 
       VALUES (
         '$title', 
         '$isbn', 
         '$author', 
         '$publisher', 
         '$year_published', 
-        '$category')";
+        '$category',
+        '$archived')";
 
     $con -> query($sql) or die ($con -> error);
 
@@ -42,6 +45,7 @@
     $publisher = $_POST['edit_publisher'];
     $year_published = $_POST['edit_year_published'];
     $category = $_POST['edit_category'];
+    $archived = $_POST['edit_archived'];
 
     $sql = "UPDATE `books_list` SET 
       `title` = '$title', 
@@ -49,7 +53,8 @@
       `author` = '$author', 
       `publisher` = '$publisher',
       `year_published` = '$year_published',
-      `category` = '$category' 
+      `category` = '$category',
+      `archived` = '$archived'
       WHERE `id` = '$edit_book_id'";
     
     $con -> query($sql) or die ($con -> error);
@@ -106,6 +111,7 @@
                   <th scope="col">PUBLISHER</th>
                   <th scope="col">YEAR PUBLISHED</th>
                   <th scope="col">CATEGORY</th>
+                  <th scope="col">ARCHIVED</th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -124,6 +130,7 @@
                   <td><?php echo $row['publisher']; ?></td>
                   <td><?php echo $row['year_published']; ?></td>
                   <td><?php echo $row['category']; ?></td>
+                  <td><?php echo $row['archived']; ?></td>
                   <td>
                     <div class="d-flex m-2">
                       <a href="#edit<?php echo $row['id']; ?>" data-toggle="modal">
@@ -210,6 +217,14 @@
                               <label for="edit_category" class="col-form-label">Category:</label>
                               <input type="text" class="form-control" name="edit_category" id="edit_category" value="<?php echo $row['category']; ?>">
                             </div>
+
+                            <div class="form-group">
+                              <label for="edit_archived" class="col-form-label">Archived:</label>
+                              <select class="form-control" name="edit_archived" id="edit_archived">
+                                <option value="Yes" <?php echo ($row['archived'] == "Yes") ? "selected" : ""; ?>>Yes</option>
+                                <option value="No" <?php echo ($row['archived'] == "No") ? "selected" : ""; ?>>No</option>
+                              </select>
+                            </div>
                           </div>
 
                           <div class="modal-footer">
@@ -269,6 +284,14 @@
               <div class="form-group">
                 <label for="category" class="col-form-label">Category:</label>
                 <input type="text" class="form-control" name="category" id="category">
+              </div>
+
+              <div class="form-group">
+                <label for="archived" class="col-form-label">Archived:</label>
+                <select class="form-control" name="archived" id="archived">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
               </div>
             </div>
 
