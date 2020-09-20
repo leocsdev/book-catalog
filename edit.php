@@ -1,52 +1,31 @@
-<!-- MODAL FOR EDIT BOOK -->
-<div class="modal fade" id="editBookModal" tabindex="-1" role="dialog" aria-labelledby="editBookModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editBookModalLabel">Edit Book Info</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+<?php
+  include_once('connections/connection.php');
+  $con = connection();
 
-      <div class="modal-body">
-        <form action="" method="post">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Book Title:</label>
-            <input type="text" class="form-control" name="title" value="<?php echo $row['title']?>" id="title">
-          </div>
-          
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">ISBN:</label>
-            <input type="text" class="form-control" name="isbn" id="isbn">
-          </div>
+  $id = $_GET['id'];
+  
+  $sql = "SELECT * FROM `books_list` WHERE `id` = '$id'";
+  $books = $con -> query($sql) or die ($con -> error);
+  $row = $books -> fetch_assoc();
 
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Author:</label>
-            <input type="text" class="form-control" name="author" id="author">
-          </div>
 
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Publisher:</label>
-            <input type="text" class="form-control" name="publisher" id="publisher">
-          </div>
+  if (isset($_POST['edit-book'])) {
+    echo "UPDATED BOOK!";
+    // $title = $_POST['title'];
+    // $isbn = $_POST['isbn'];
+    // $author = $_POST['author'];
+    // $publisher = $_POST['publisher'];
+    // $year_published = $_POST['year_published'];
+    // $category = $_POST['category'];
+    
+    // $sql = "UPDATE `books_list` SET `title` = '$title', `last_name` = '$lastName', `birthday` = '$birthday', gender = '$gender' WHERE `id` = '$id'";
 
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Year Published:</label>
-            <input type="number" class="form-control" name="year_published" id="year_published">
-          </div>
+    // $con -> query($sql) or die ($con -> error);
 
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Category:</label>
-            <input type="text" class="form-control" name="category" id="category">
-          </div>
+    // // redirect to details.php after updating student info
+    // echo header("Location: details.php?id=".$id);
+  }
 
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary" name="edit-book">Save Changes</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+?>
+
+
