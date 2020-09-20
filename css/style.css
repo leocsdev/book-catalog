@@ -3,6 +3,15 @@ body {
   font-size: 14px;
 }
 
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.btn-add {
+  width: 115px;
+}
+
 table {
   border-collapse: collapse;
   border-radius: 5px;

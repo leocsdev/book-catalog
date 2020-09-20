@@ -84,9 +84,9 @@
     <section>
       <div class="container">
         <div class="row">
-          <div class="col-sm-12 my-3">
-            <a href="#add" data-toggle="modal">
-              <button type='button' class='btn btn-success'>
+          <div class="col-sm-3 ml-auto my-3">
+            <a href="#add" data-toggle="modal" class="d-flex justify-content-end">
+              <button type='button' class='btn btn-success btn-add'>
                 Add
               </button>
             </a>
