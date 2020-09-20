@@ -5,7 +5,6 @@
   // ADD BOOK
   if (isset($_POST['add-book'])) {  
     // echo "ADDED BOOK!";
-
     $title = $_POST['title'];
     $isbn = $_POST['isbn'];
     $author = $_POST['author'];
@@ -36,7 +35,6 @@
   // EDIT BOOK
   if (isset($_POST['edit-book'])) {
     // echo "UPDATED BOOK!";
-
     $edit_book_id = $_POST['edit_book_id'];
     $title = $_POST['edit_title'];
     $isbn = $_POST['edit_isbn'];
@@ -62,7 +60,6 @@
   // DELETE BOOK
   if(isset($_POST['delete-book'])){
     // echo "DEL BOOK";
-
     $delete_book_id = $_POST['delete_book_id'];
     $sql = "DELETE FROM `books_list` WHERE `id`='$delete_book_id'";
 
@@ -125,9 +122,6 @@
                   <td><?php echo $row['year_published']; ?></td>
                   <td><?php echo $row['category']; ?></td>
                   <td>
-                    
-                    <!-- <button type="button" class="btn btn-secondary btn-edit">EDIT</button> -->
-
                     <a href="#edit<?php echo $row['id']; ?>" data-toggle="modal">
                       <button type='button' class='btn btn-success btn-sm'>
                         EDIT
@@ -140,9 +134,36 @@
                     </a>
                   </td>
 
+                  <!-- DELETE BOOK MODAL -->
+                  <div id="delete<?php echo $row['id']; ?>" class="modal fade" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <form action="" method="post">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Delete Book</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+                          <div class="modal-body">
+                            <input type="hidden" name="delete_book_id" value="<?php echo $row['id']; ?>">
+                            <div class="alert alert-danger">
+                              Are you Sure you want to delete &quot;<?php echo $row['title']; ?>&quot;
+                            </div>
+                            <div class="modal-footer">
+                              <button type="submit" name="delete-book" class="btn btn-danger">
+                                YES
+                              </button>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">
+                                NO
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
                   <!-- EDIT BOOK MODAL -->
                   <div id="edit<?php echo $row['id']; ?>" class="modal fade" role="dialog">
-
                     <form method="post" action="">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -194,38 +215,6 @@
                       </div>
                     </form>
                   <div>
-
-                  <!-- DELETE BOOK MODAL -->
-                  <div id="delete<?php echo $row['id']; ?>" class="modal fade" role="dialog">
-                    <form action="" method="post">
-                    
-                      <div class="modal-dialog" role="document">
-                      
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h4 class="modal-title">Delete Book</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          </div>
-                          <div class="modal-body">
-                            <input type="hidden" name="delete_book_id" value="<?php echo $row['id']; ?>">
-                            <div class="alert alert-danger">
-                              Are you Sure you want to delete &quot;<?php echo $row['title']; ?>&quot;
-                            </div>
-                            <div class="modal-footer">
-                              <button type="submit" name="delete-book" class="btn btn-danger">
-                                YES
-                              </button>
-                              <button type="button" class="btn btn-default" data-dismiss="modal">
-                                NO
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      
-                      </div>
-                    </form>
-                  </div>
-
                 </tr>
                 <?php } while ($row = $books -> fetch_assoc()); ?>
               </tbody>
@@ -286,16 +275,6 @@
         </div>
       </form>
     <div>
-    
-
-
-    
-
-    
-
-
-
-
   </main>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
