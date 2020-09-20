@@ -190,32 +190,32 @@
 
                             <div class="form-group">
                               <label for="edit_title" class="col-form-label">Book Title:</label>
-                              <input type="text" class="form-control" name="edit_title" id="edit_title" value="<?php echo $row['title']; ?>">
+                              <input type="text" class="form-control" name="edit_title" id="edit_title" value="<?php echo $row['title']; ?>" required>
                             </div>
                             
                             <div class="form-group">
                               <label for="edit_isbn" class="col-form-label">ISBN:</label>
-                              <input type="text" class="form-control" name="edit_isbn" id="edit_isbn" value="<?php echo $row['isbn']; ?>">
+                              <input type="text" class="form-control" name="edit_isbn" id="edit_isbn" value="<?php echo $row['isbn']; ?>" required>
                             </div>
 
                             <div class="form-group">
                               <label for="edit_author" class="col-form-label">Author:</label>
-                              <input type="text" class="form-control" name="edit_author" id="edit_author" value="<?php echo $row['author']; ?>">
+                              <input type="text" class="form-control" name="edit_author" id="edit_author" value="<?php echo $row['author']; ?>" required>
                             </div>
 
                             <div class="form-group">
                               <label for="edit_publisher" class="col-form-label">Publisher:</label>
-                              <input type="text" class="form-control" name="edit_publisher" id="edit_publisher" value="<?php echo $row['publisher']; ?>">
+                              <input type="text" class="form-control" name="edit_publisher" id="edit_publisher" value="<?php echo $row['publisher']; ?>" required>
                             </div>
 
                             <div class="form-group">
                               <label for="edit_year_published" class="col-form-label">Year Published:</label>
-                              <input type="text" class="form-control" name="edit_year_published" id="edit_year_published" value="<?php echo $row['year_published']; ?>">
+                              <input type="number" class="form-control" name="edit_year_published" id="edit_year_published" value="<?php echo $row['year_published']; ?>" required>
                             </div>
 
                             <div class="form-group">
                               <label for="edit_category" class="col-form-label">Category:</label>
-                              <input type="text" class="form-control" name="edit_category" id="edit_category" value="<?php echo $row['category']; ?>">
+                              <input type="text" class="form-control" name="edit_category" id="edit_category" value="<?php echo $row['category']; ?>" required>
                             </div>
 
                             <div class="form-group">
@@ -258,32 +258,32 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="title" class="col-form-label">Book Title:</label>
-                <input type="text" class="form-control" name="title" id="title">
+                <input type="text" class="form-control" name="title" id="title" required>
               </div>
               
               <div class="form-group">
                 <label for="isbn" class="col-form-label">ISBN:</label>
-                <input type="text" class="form-control" name="isbn" id="isbn">
+                <input type="text" class="form-control" name="isbn" id="isbn" required>
               </div>
 
               <div class="form-group">
                 <label for="author" class="col-form-label">Author:</label>
-                <input type="text" class="form-control" name="author" id="author">
+                <input type="text" class="form-control" name="author" id="author" required>
               </div>
 
               <div class="form-group">
                 <label for="publisher" class="col-form-label">Publisher:</label>
-                <input type="text" class="form-control" name="publisher" id="publisher">
+                <input type="text" class="form-control" name="publisher" id="publisher" required>
               </div>
 
               <div class="form-group">
                 <label for="year_published" class="col-form-label">Year Published:</label>
-                <input type="text" class="form-control" name="year_published" id="year_published">
+                <input type="number" class="form-control" name="year_published" id="year_published" required>
               </div>
 
               <div class="form-group">
                 <label for="category" class="col-form-label">Category:</label>
-                <input type="text" class="form-control" name="category" id="category">
+                <input type="text" class="form-control" name="category" id="category" required>
               </div>
 
               <div class="form-group">
