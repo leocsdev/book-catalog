@@ -145,7 +145,7 @@
                       <form action="" method="post">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h4 class="modal-title">Delete Book</h4>
+                            <h4 class="modal-title">Delete</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
                           <div class="modal-body">
@@ -155,10 +155,10 @@
                             </div>
                             <div class="modal-footer">
                               <button type="submit" name="delete-book" class="btn btn-danger">
-                                YES
+                                DELETE
                               </button>
-                              <button type="button" class="btn btn-default" data-dismiss="modal">
-                                NO
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Cancel
                               </button>
                             </div>
                           </div>
@@ -174,7 +174,7 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             
-                            <h4 class="modal-title">Edit Book</h4>
+                            <h4 class="modal-title">Edit</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
 
@@ -236,7 +236,7 @@
           <div class="modal-content">
             <div class="modal-header">
               
-              <h4 class="modal-title">Add Book</h4>
+              <h4 class="modal-title">Add</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -274,7 +274,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary" name="add-book">Save Changes</button>
+              <button type="submit" class="btn btn-primary" name="add-book">Add</button>
             </div>
           </div>
         </div>
