@@ -66,7 +66,7 @@
     $con -> query($sql) or die ($con -> error);
 
     echo header("Location: index.php");
-}
+  }
 ?>
 
 <!DOCTYPE html>
@@ -84,19 +84,22 @@
     <section>
       <div class="container">
         <div class="row">
-          <a href="#add" data-toggle="modal">
-            <button type='button' class='btn btn-success btn-sm'>
-              Add
-            </button>
-          </a>
+          <div class="col-sm-12 my-3">
+            <a href="#add" data-toggle="modal">
+              <button type='button' class='btn btn-success'>
+                Add
+              </button>
+            </a>
+          </div>
+          
         </div>
 
         <div class="row">
-          <div class="col-lg">
+          <div class="col-sm-12">
           <table>
               <thead>
                 <tr>
-                  <th scope="col">ID</th>
+                  <!-- <th scope="col">ID</th> -->
                   <th scope="col">TITLE</th>
                   <th scope="col">ISBN</th>
                   <th scope="col">AUTHOR</th>
@@ -114,7 +117,7 @@
                   
                 do { ?>
                 <tr>
-                  <td><?php echo $row['id']; ?></td>
+                  <!-- <td><?php // echo $row['id']; ?></td> -->
                   <td><?php echo $row['title']; ?></td>
                   <td><?php echo $row['isbn']; ?></td>
                   <td><?php echo $row['author']; ?></td>
@@ -122,16 +125,18 @@
                   <td><?php echo $row['year_published']; ?></td>
                   <td><?php echo $row['category']; ?></td>
                   <td>
-                    <a href="#edit<?php echo $row['id']; ?>" data-toggle="modal">
-                      <button type='button' class='btn btn-success btn-sm'>
-                        EDIT
-                      </button>
-                    </a>
-                    <a href="#delete<?php echo $row['id']; ?>" data-toggle="modal">
-                      <button type='button' class='btn btn-success btn-sm'>
-                        DEL
-                      </button>
-                    </a>
+                    <div class="d-flex m-2">
+                      <a href="#edit<?php echo $row['id']; ?>" data-toggle="modal">
+                        <button type='button' class='btn btn-secondary btn-sm mr-1'>
+                          EDIT
+                        </button>
+                      </a>
+                      <a href="#delete<?php echo $row['id']; ?>" data-toggle="modal">
+                        <button type='button' class='btn btn-secondary btn-sm ml-1'>
+                          DEL
+                        </button>
+                      </a>
+                    </div>
                   </td>
 
                   <!-- DELETE BOOK MODAL -->
